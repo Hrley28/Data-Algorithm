@@ -42,19 +42,19 @@ public class TodoList {
             prev.next = newNode;
         }
         size++;
-        System.out.println("\nTask inserted at index " + index + "!");
+        System.out.println("Task inserted at index " + index + "!");
     }
 
     public void deleteTask(String title) {
         if (head == null) {
-            System.out.println("\nList is empty.");
+            System.out.println("List is empty.");
             return;
         }
 
         if (head.title.equals(title)) {
             head = head.next;
             size--;
-            System.out.println("\nTask deleted!");
+            System.out.println("Task deleted!");
             return;
         }
 
@@ -64,14 +64,14 @@ public class TodoList {
             if (curr.title.equals(title)) {
                 prev.next = curr.next;
                 size--;
-                System.out.println("\nTask deleted!");
+                System.out.println("Task deleted!");
                 return;
             }
             prev = curr;
             curr = curr.next;
         }
 
-        System.out.println("\nTask not found.");
+        System.out.println("Task not found.");
     }
 
     public boolean contains(String title) {
@@ -88,7 +88,7 @@ public class TodoList {
             System.out.println("\nYour Tasks: (none)");
             return;
         }
-        System.out.println("\nYour Tasks:");
+        System.out.println("Your Tasks:");
         TaskNode curr = head;
         while (curr != null) {
             System.out.println("- " + curr.title);
