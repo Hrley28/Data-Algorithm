@@ -29,7 +29,7 @@ public class MainJava {
                     if (!t1.isEmpty()) {
                         todo.addTask(t1);
                     } else {
-                        System.out.println("\nTitle cannot be empty.");
+                        System.out.println("Title cannot be empty.");
                     }
                     break;
                 case "2":
@@ -42,10 +42,10 @@ public class MainJava {
                         if (!t2.isEmpty()) {
                             todo.insertTaskAt(t2, idx);
                         } else {
-                            System.out.println("\nTitle cannot be empty.");
+                            System.out.println("Title cannot be empty.");
                         }
                     } catch (NumberFormatException e) {
-                        System.out.println("\nInvalid index.");
+                        System.out.println("Invalid index.");
                     }
                     break;
                 case "3":
@@ -54,7 +54,7 @@ public class MainJava {
                     if (!d.isEmpty()) {
                         todo.deleteTask(d);
                     } else {
-                        System.out.println("\nTitle cannot be empty.");
+                        System.out.println("Title cannot be empty.");
                     }
                     break;
                 case "4":
@@ -64,20 +64,20 @@ public class MainJava {
                     System.out.print("Enter task title to search: ");
                     String s = sc.nextLine().trim();
                     if (todo.contains(s)) {
-                        System.out.println("\nTask found!");
+                        System.out.println("Task found!");
                     } else {
-                        System.out.println("\nTask not found.");
+                        System.out.println("Task not found.");
                     }
                     break;
                 case "6":
-                    System.out.println("\nTotal tasks: " + todo.count());
+                    System.out.println("Total tasks: " + todo.count());
                     break;
                 case "7":
                     running = false;
-                    System.out.println("\nExiting. Goodbye!");
+                    System.out.println("Exiting. Goodbye!");
                     break;
                 default:
-                    System.out.println("\nInvalid choice. Try again.");
+                    System.out.println("Invalid choice. Try again.");
             }
         }
 
