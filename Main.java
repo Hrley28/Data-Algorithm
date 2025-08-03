@@ -11,7 +11,7 @@ public class MainJava {
         boolean running = true;
 
         while (running) {
-            System.out.println("\n==== To-Do List ====");
+            System.out.println("All of the List");
             System.out.println("1. Add task");
             System.out.println("2. Insert task at index");
             System.out.println("3. Delete task");
