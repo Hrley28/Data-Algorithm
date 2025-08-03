@@ -1,0 +1,102 @@
+package main.java;
+
+public class TodoList {
+    private TaskNode head;
+    private int size;
+
+    public TodoList() {
+        head = null;
+        size = 0;
+    }
+
+    public void addTask(String title) {
+        TaskNode newNode = new TaskNode(title);
+        if (head == null) {
+            head = newNode;
+        } else {
+            TaskNode curr = head;
+            while (curr.next != null) {
+                curr = curr.next;
+            }
+            curr.next = newNode;
+        }
+        size++;
+        System.out.println("\nTask added!");
+    }
+
+    public void insertTaskAt(String title, int index) {
+        if (index <= 0) {
+            TaskNode newNode = new TaskNode(title);
+            newNode.next = head;
+            head = newNode;
+        } else if (index >= size) {
+            addTask(title);
+            return;
+        } else {
+            TaskNode prev = head;
+            for (int i = 0; i < index - 1; i++) {
+                prev = prev.next;
+            }
+            TaskNode newNode = new TaskNode(title);
+            newNode.next = prev.next;
+            prev.next = newNode;
+        }
+        size++;
+        System.out.println("\nTask inserted at index " + index + "!");
+    }
+
+    public void deleteTask(String title) {
+        if (head == null) {
+            System.out.println("\nList is empty.");
+            return;
+        }
+
+        if (head.title.equals(title)) {
+            head = head.next;
+            size--;
+            System.out.println("\nTask deleted!");
+            return;
+        }
+
+        TaskNode prev = head;
+        TaskNode curr = head.next;
+        while (curr != null) {
+            if (curr.title.equals(title)) {
+                prev.next = curr.next;
+                size--;
+                System.out.println("\nTask deleted!");
+                return;
+            }
+            prev = curr;
+            curr = curr.next;
+        }
+
+        System.out.println("\nTask not found.");
+    }
+
+    public boolean contains(String title) {
+        TaskNode curr = head;
+        while (curr != null) {
+            if (curr.title.equals(title)) return true;
+            curr = curr.next;
+        }
+        return false;
+    }
+
+    public void printTasks() {
+        if (head == null) {
+            System.out.println("\nYour Tasks: (none)");
+            return;
+        }
+        System.out.println("\nYour Tasks:");
+        TaskNode curr = head;
+        while (curr != null) {
+            System.out.println("- " + curr.title);
+            curr = curr.next;
+        }
+    }
+
+    public int count() {
+        return size; 
+    }
+}
